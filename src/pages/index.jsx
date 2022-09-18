@@ -1,9 +1,9 @@
-import News from './News';
-import Venues from './Venues';
-import Scores from './Scores';
-import Home from './Home';
-import Calendar from './Calendar';
-import Rules from './Rules';
+import News from './News'
+import Venues from './Venues'
+import Scores from './Scores'
+import Home from './Home'
+import Calendar from './Calendar'
+import Rules from './Rules'
 
 const routies = [
   {
@@ -30,6 +30,6 @@ const routies = [
     path: 'rules',
     element: <Rules />,
   },
-];
+]
 
-export default routies;
+export default routies
