@@ -4,6 +4,7 @@ import Scores from './Scores'
 import Home from './Home'
 import Calendar from './Calendar'
 import Rules from './Rules'
+import { PlayerTemplate, VenueTemplate, TeamTemplate } from './templates'
 
 const routies = [
   {
@@ -21,10 +22,26 @@ const routies = [
   {
     path: 'scores',
     element: <Scores />,
+    children: [
+      {
+        path: 'player/:id',
+        element: <PlayerTemplate />,
+      },
+      {
+        path: 'team/:id',
+        element: <TeamTemplate />,
+      },
+    ],
   },
   {
     path: 'venues',
     element: <Venues />,
+    children: [
+      {
+        path: ':venueId',
+        element: <VenueTemplate />,
+      },
+    ],
   },
   {
     path: 'rules',
