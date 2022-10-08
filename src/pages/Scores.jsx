@@ -2,30 +2,39 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
-import { TablePK } from '../components'
+import { PlayerCard, TablePK } from '../components'
 import supabase from '../utils/db/supabase'
+import useFetchAll from '../utils/hooks/useFetchAll'
 
 const Scores = () => {
-    const [allScores, setScores] = useState([])
 
-    useEffect(() => {
-        async function getScores() {
-            let { data: scores, error } = await supabase
-                .from('scores')
-                .select('*')
-            setScores(scores)
-        }
-        getScores()
-    }, [])
+    const { dataList, loading, err } = useFetchAll(
+        "barpg_barleague_scores_scores"
+      );
+    
+      if (loading) <p>Loading...</p>;
+    
+    // const [allScores, setScores] = useState([])
 
-    if (allScores.length === 0) return 'Loading...'
+    // useEffect(() => {
+    //     async function getScores() {
+    //         let { data: teams, error } = await supabase
+    //             .from('teams')
+    //             .select('*')
+    //         setScores(teams)
+    //     }
+    //     getScores()
+    // }, [])
+
+    // if (allScores === null) return 'Loading...'
 
     return (
         <div>
             Scores
             <div>
-                <Outlet />
-                <TablePK tableArray={allScores} />
+                
+                <PlayerCard players={dataList} />
+                {/* <TablePK tableArray={allScores} /> */}
             </div>
         </div>
     )

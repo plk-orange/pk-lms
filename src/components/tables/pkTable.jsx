@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 import tableStyles from './tableStyles'
 
 const TablePK = ({ tableArray }) => {
-    if (!tableArray) return 'loading...'
+
+
+    if (tableArray === undefined || tableArray.length === 0) return 'loading...'
 
     const objKeys = Object.keys(tableArray[0])
 
@@ -23,11 +25,11 @@ const TablePK = ({ tableArray }) => {
                     return (
                         <tr className={tableStyles.tr}>
                             {objKeys.map((keyOne) => (
-                                <Link className={``} to={`player/${row.id}`}>
+                               
                                     <td className={tableStyles.td}>
                                         {row[keyOne]}
                                     </td>
-                                </Link>
+                           
                             ))}
                         </tr>
                     )

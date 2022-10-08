@@ -9,7 +9,15 @@ module.exports = {
         md: '#2C333C',
         lg: '#1A1E23',
         xl: '#111417',
+        xxl: '#29303D'
       },
+      pkorange: {
+        md: '#F4845F'
+      }
+    },
+    listStyleType: {
+      plus: '+'
+      
     },
     extend: {},
   },
